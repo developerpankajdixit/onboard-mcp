@@ -39,15 +39,29 @@ This server turns that debugging into one question in your AI chat:
 | `check_env_files` | `.env` / `.env.local` vs `.env.example` (compares keys only, never reads your values into the response) |
 | `check_ports` | Whether the TCP ports your project needs are free |
 
+## Requirements
+
+- **Node.js 18 or newer** — required for every client, since the server runs via `npx onboard-mcp`. Check with `node --version`; install from [nodejs.org](https://nodejs.org) if needed.
+
+That's the only universal dependency. `npx` fetches the published package automatically — no clone or build required. The **Claude Code** steps below additionally need the `claude` CLI (`npm install -g @anthropic-ai/claude-code`); other clients do not.
+
 ## Quick start
 
 ### Claude Code
+
+Requires the [Claude Code CLI](https://code.claude.com/docs). Install it first if you don't have it:
+
+```bash
+npm install -g @anthropic-ai/claude-code
+```
+
+Then register the server:
 
 ```bash
 claude mcp add --scope user onboard -- npx -y onboard-mcp
 ```
 
-(`--scope user` makes it available in every project; omit it to register for the current project only.)
+(`--scope user` makes it available in every project; omit it to register for the current project only.) Verify with `claude mcp get onboard`.
 
 Or clone and build locally:
 
