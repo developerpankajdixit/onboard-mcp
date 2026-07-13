@@ -1,0 +1,49 @@
+{
+  "name": "onboard-mcp",
+  "version": "0.1.0",
+  "description": "Your dev environment, fixed by asking your AI assistant. An MCP server that checks and repairs local setup.",
+  "type": "module",
+  "bin": {
+    "onboard-mcp": "dist/index.js"
+  },
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx src/index.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "developer-tools",
+    "onboarding",
+    "dev-environment",
+    "copilot",
+    "claude"
+  ],
+  "author": "Pankaj Dixit <developerpankajdixit@gmail.com> (https://pankajdixit.com)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/developerpankajdixit/onboard-mcp.git"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5.4.0",
+    "vitest": "^2.0.0"
+  }
+}
