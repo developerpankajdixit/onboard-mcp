@@ -44,8 +44,10 @@ This server turns that debugging into one question in your AI chat:
 ### Claude Code
 
 ```bash
-claude mcp add onboard -- npx -y onboard-mcp
+claude mcp add --scope user onboard -- npx -y onboard-mcp
 ```
+
+(`--scope user` makes it available in every project; omit it to register for the current project only.)
 
 Or clone and build locally:
 
@@ -70,6 +72,21 @@ Add to `.vscode/mcp.json` in your project:
 }
 ```
 
+### Cursor
+
+Settings → MCP → Add new global MCP server, or add to `.cursor/mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "onboard": {
+      "command": "npx",
+      "args": ["-y", "onboard-mcp"]
+    }
+  }
+}
+```
+
 ### Claude Desktop
 
 Add to `claude_desktop_config.json`:
@@ -86,6 +103,8 @@ Add to `claude_desktop_config.json`:
 ```
 
 Then ask: *"Run the doctor on /path/to/my/project, it needs ports 3000 and 5432."*
+
+Any other MCP-compatible client works the same way: point it at `npx -y onboard-mcp` over stdio.
 
 ## Design notes
 
